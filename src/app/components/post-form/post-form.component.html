@@ -1,0 +1,22 @@
+<h1>Add Post</h1>
+<div class="card-panel">
+  <form>
+    <div class="row">
+      <div class="input-field col s12">
+        <input #title type="text" class="validate" [(ngModel)]="currentPost.title" name="title">
+        <label for="title">Title</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <input #body type="text" class="validate" [(ngModel)]="currentPost.body" name="body">
+        <label for="body">Body</label>
+      </div>
+    </div>
+    <input type="hidden" name="id" [(ngModel)]="currentPost.id" />
+    <button *ngIf="!isEdit" (click)="addPost(title.value, body.value)" class="btn blue darken-4">Add Post</button>
+
+    <button *ngIf="isEdit" (click)="updatePost()" class="btn orange darken-4">Update Post</button>
+  </form>
+
+</div>
